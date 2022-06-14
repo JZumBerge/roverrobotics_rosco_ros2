@@ -395,10 +395,12 @@ void RobotDriver::velocity_event_callback(
 
     rclcpp::shutdown();
   }
-  static double speeddata[3];
+  static double speeddata[5];
   speeddata[0] = msg->linear.x;
   speeddata[1] = msg->angular.z;
   speeddata[2] = msg->angular.y;
+  speeddata[3] = msg->linear.y; // added for rosco left hip
+  speeddata[4] = msg->linear.z; // added for rosco right hip
   robot_->set_robot_velocity(speeddata);
 }
 

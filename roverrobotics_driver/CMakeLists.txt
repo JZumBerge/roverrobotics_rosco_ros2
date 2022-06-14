@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(roverrobotics_driver)
+project(roverrobotics_rosco_driver)
 
 # Default to C++17
 add_compile_options(-std=c++17)
@@ -27,18 +27,18 @@ set_target_properties(librover PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES "/usr/include/librover")
 
 
-add_executable(roverrobotics_driver
+add_executable(roverrobotics_rosco_driver
   src/roverrobotics_ros2_driver.cpp)
-target_link_libraries(roverrobotics_driver librover)
+target_link_libraries(roverrobotics_rosco_driver librover)
 
 
 
-target_include_directories(roverrobotics_driver
+target_include_directories(roverrobotics_rosco_driver
   PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 
-ament_target_dependencies(roverrobotics_driver
+ament_target_dependencies(roverrobotics_rosco_driver
   rclcpp
   std_msgs
   geometry_msgs
@@ -57,7 +57,7 @@ install(DIRECTORY
   DESTINATION share/${PROJECT_NAME})
 
 install(TARGETS
-  roverrobotics_driver
+  roverrobotics_rosco_driver
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

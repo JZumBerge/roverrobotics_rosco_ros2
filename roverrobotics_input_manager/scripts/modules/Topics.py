@@ -38,6 +38,11 @@ class TwistTopic:
         self._is_turbo = False
         self._before_turbo = 1.0
 
+        # for Rosco
+        self.left_hip_reverse = params['hip']['left_reverse']
+        self.right_hip_reverse = params['hip']['right_reverse']
+
+        # temporarily using linear y and z for left and right hip motion
         self.x = params['data']['linear']['x']
         self.y = params['data']['linear']['y']
         self.z = params['data']['linear']['z']
@@ -78,6 +83,13 @@ class TwistTopic:
         msg.angular.x = self._ang_throttle_coef * self._convert_input(self.roll, controller)
         msg.angular.y = self._ang_throttle_coef * self._convert_input(self.pitch, controller)
         msg.angular.z = self._ang_throttle_coef * self._convert_input(self.yaw, controller)
+
+        # for Rosco
+        l_hip_input = self._convert_input(self.left_hip_reverse, controller)
+        self._set_left_hip_dir(l_hip_input)
+        r_hip_input = self._convert_input(self.right_hip_reverse, controller)
+        self._set_right_hip_dir(r_hip_input)
+
         if msg == self._HALT:
             if self.publish_multiple_halts or not self._last_message_was_halt:
                 self._publisher.publish(msg)
@@ -114,3 +126,10 @@ class TwistTopic:
                 self._ang_throttle_coef = 0
         self._last_ang_throttle_input = throttle_input
 
+    def _set_left_hip_dir(self, hip_input):
+        if abs(hip_input) == 1:
+            self.y *= -1
+
+    def _set_right_hip_dir(self, hip_input):
+        if abs(hip_input) == 1:
+            self.z *= -1

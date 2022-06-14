@@ -14,7 +14,7 @@ RIGHT_JOY_HORIZ:
   type: axis
   index: 3
   exclusion: [-0.15, 0.15]
-  scale: 20
+  scale: 2
   offset: 0
 RIGHT_JOY_VERT:
   type: axis
@@ -26,7 +26,7 @@ RIGHT_TRIGGER:
   type: axis
   index: 2
   exclusion: [0.0, 1.0]
-  scale: -1
+  scale: 1
   offset: 0
 LEFT_TRIGGER:
   type: axis

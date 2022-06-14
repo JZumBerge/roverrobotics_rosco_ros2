@@ -8,11 +8,14 @@ joy_manager:
     ang_increment: 0.25
     ang_throttle_ctrl: DPAD_HORIZ
   turbo: 0
+  hip:
+  left_reverse: LB
+  right_reverse: RB
   data:
     linear:
       x: LEFT_JOY_VERT
-      y: 0
-      z: 0
+      y: LEFT_TRIGGER
+      z: RIGHT_TRIGGER
     angular:
       x: 0
       y: RIGHT_JOY_VERT

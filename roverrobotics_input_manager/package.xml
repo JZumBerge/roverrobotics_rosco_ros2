@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-    <name>roverrobotics_input_manager</name>
+    <name>roverrobotics_rosco_input_manager</name>
     <version>0.1.1</version>
     <description>Contains Rover provided teleoperation applications.</description>
     <maintainer email="will@roverrobotics.com">Wiliam Rook</maintainer>

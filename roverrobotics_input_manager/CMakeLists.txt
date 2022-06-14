@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(roverrobotics_input_manager)
+project(roverrobotics_rosco_input_manager)
 
 find_package(ament_cmake REQUIRED)
 
